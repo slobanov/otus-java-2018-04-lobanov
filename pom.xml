@@ -21,12 +21,19 @@
 
         <maven.assembly.plugin.version>3.1.0</maven.assembly.plugin.version>
         <maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
+        <maven.deploy.plugin>2.8.2</maven.deploy.plugin>
+        <dockerfile.maven.plugin.verion>1.4.0</dockerfile.maven.plugin.verion>
 
         <commons.lang3.version>3.7</commons.lang3.version>
         <typesafe.config.version>1.3.3</typesafe.config.version>
 
         <junit.jupiter.version>5.1.1</junit.jupiter.version>
         <junit.platform.version>1.1.1</junit.platform.version>
+
+        <activation.version>1.1.1</activation.version>
+        <plexus.archiver.version>3.4</plexus.archiver.version>
+
+        <docker.repository.org>otusjava201804lobanov</docker.repository.org>
     </properties>
 
     <developers>
@@ -47,8 +54,6 @@
             <artifactId>config</artifactId>
             <version>${typesafe.config.version}</version>
         </dependency>
-
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -80,6 +85,7 @@
                         </execution>
                     </executions>
                     <configuration>
+                        <appendAssemblyId>false</appendAssemblyId>
                         <descriptorRefs>
                             <descriptorRef>jar-with-dependencies</descriptorRef>
                         </descriptorRefs>
@@ -102,8 +108,54 @@
                         </dependency>
                     </dependencies>
                 </plugin>
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>dockerfile-maven-plugin</artifactId>
+                    <version>${dockerfile.maven.plugin.verion}</version>
+                    <executions>
+                        <execution>
+                            <id>default</id>
+                            <phase>deploy</phase>
+                            <goals>
+                                <goal>build</goal>
+                                <goal>push</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <repository>${docker.repository.org}/${project.name}</repository>
+                        <tag>${project.version}</tag>
+                        <username>${env.DOCKER_USERNAME}</username>
+                        <password>${env.DOCKER_DOCKER_PASSWORD}</password>
+                        <buildArgs>
+                            <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                        </buildArgs>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.codehaus.plexus</groupId>
+                            <artifactId>plexus-archiver</artifactId>
+                            <version>${plexus.archiver.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>javax.activation</groupId>
+                            <artifactId>activation</artifactId>
+                            <version>${activation.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>${maven.deploy.plugin}</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
 </project>
