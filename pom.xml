@@ -22,6 +22,7 @@
         <maven.assembly.plugin.version>3.1.0</maven.assembly.plugin.version>
         <maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
         <maven.deploy.plugin>2.8.2</maven.deploy.plugin>
+        <maven.install.plugin>2.5.2</maven.install.plugin>
         <dockerfile.maven.plugin.verion>0.25.2</dockerfile.maven.plugin.verion>
 
         <commons.lang3.version>3.7</commons.lang3.version>
@@ -69,6 +70,7 @@
     </dependencyManagement>
 
     <build>
+        <finalName>${project.name}</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -159,6 +161,14 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
                 <version>${maven.deploy.plugin}</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>${maven.install.plugin}</version>
                 <configuration>
                     <skip>true</skip>
                 </configuration>
