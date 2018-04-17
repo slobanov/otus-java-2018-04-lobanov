@@ -17,6 +17,9 @@
 
     <properties>
         <main.class>ru.otus.l011.Main</main.class>
+
+        <proguard.base.version>6.0.2</proguard.base.version>
+        <proguard.maven.plugin.version>2.0.14</proguard.maven.plugin.version>
     </properties>
 
     <dependencies>
@@ -39,6 +42,7 @@
         </dependency>
     </dependencies>
 
+
     <build>
         <plugins>
             <plugin>
@@ -52,9 +56,43 @@
                     </archive>
                 </configuration>
             </plugin>
+
             <plugin>
-                <groupId>io.fabric8</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
+                <groupId>com.github.wvengen</groupId>
+                <artifactId>proguard-maven-plugin</artifactId>
+                <version>${proguard.maven.plugin.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.sf.proguard</groupId>
+                        <artifactId>proguard-base</artifactId>
+                        <version>${proguard.base.version}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals><goal>proguard</goal></goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <options>
+                        <option>-allowaccessmodification</option>
+                        <option>
+                            -keep public class ${main.class} { public static void main(java.lang.String[]); }
+                        </option>
+                        <option>
+                            -dontnote com.typesafe.config.**,
+                                      jdk.internal.**,
+                                      org.apache.commons.lang3.**,
+                                      module-info
+                        </option>
+                        <option>-keepattributes Signature,*Annotation*,InnerClasses</option>
+                    </options>
+                    <libs>
+                        <lib>${java.home}/jmods/java.desktop.jmod</lib>
+                        <lib>${java.home}/jmods/java.base.jmod</lib>
+                    </libs>
+                </configuration>
             </plugin>
         </plugins>
     </build>
