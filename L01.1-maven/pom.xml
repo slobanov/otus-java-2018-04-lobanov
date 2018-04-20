@@ -75,23 +75,19 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <proguardVersion>${proguard.base.version}</proguardVersion>
+                    <obfuscate>true</obfuscate>
                     <options>
-                        <option>-allowaccessmodification</option>
-                        <option>
-                            -keep public class ${main.class} { public static void main(java.lang.String[]); }
-                        </option>
+                        <option>-keep public class ru.otus.l0111.Main {public static void main(java.lang.String[]);}</option>
+                        <option>-dontwarn</option>
+                        <option>-keepattributes Signature,*Annotation*,InnerClasses</option>
                         <option>
                             -dontnote com.typesafe.config.**,
-                                      jdk.internal.**,
-                                      org.apache.commons.lang3.**,
-                                      module-info
+                            jdk.internal.**,
+                            org.apache.commons.lang3.**,
+                            module-info
                         </option>
-                        <option>-keepattributes Signature,*Annotation*,InnerClasses</option>
                     </options>
-                    <libs>
-                        <lib>${java.home}/jmods/java.desktop.jmod</lib>
-                        <lib>${java.home}/jmods/java.base.jmod</lib>
-                    </libs>
                 </configuration>
             </plugin>
         </plugins>
