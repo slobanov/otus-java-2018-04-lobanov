@@ -10,6 +10,7 @@
     <modules>
         <module>L01.1-maven</module>
         <module>L03.1-memory</module>
+        <module>L03.2-additional</module>
     </modules>
 
     <packaging>pom</packaging>
