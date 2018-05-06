@@ -11,6 +11,7 @@
         <module>L01.1-maven</module>
         <module>L03.1-memory</module>
         <module>L03.2-additional</module>
+        <module>L05.1-myarraylist</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -31,6 +32,8 @@
 
         <commons.lang3.version>3.7</commons.lang3.version>
         <typesafe.config.version>1.3.3</typesafe.config.version>
+        <org.slf4j.version>1.7.25</org.slf4j.version>
+        <logback.version>1.2.3</logback.version>
 
         <jamm.version>0.3.2</jamm.version>
 
@@ -58,6 +61,21 @@
                 <groupId>com.typesafe</groupId>
                 <artifactId>config</artifactId>
                 <version>${typesafe.config.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${org.slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-ext</artifactId>
+                <version>${org.slf4j.version}</version>
             </dependency>
 
             <dependency>
