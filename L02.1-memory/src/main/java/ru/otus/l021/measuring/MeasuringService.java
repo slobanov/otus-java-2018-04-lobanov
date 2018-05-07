@@ -1,8 +1,8 @@
-package ru.otus.l031.measuring;
+package ru.otus.l021.measuring;
 
-import ru.otus.l031.report.SizeReporter;
-import ru.otus.l031.supply.MeasurableObject;
-import ru.otus.l031.supply.ObjectsSupplier;
+import ru.otus.l021.report.SizeReporter;
+import ru.otus.l021.supply.MeasurableObject;
+import ru.otus.l021.supply.ObjectsSupplier;
 
 public class MeasuringService {
     private final Meter meter;

@@ -1,4 +1,4 @@
-package ru.otus.l031.supply;
+package ru.otus.l021.supply;
 
 import java.util.Collection;
 import java.util.function.Supplier;

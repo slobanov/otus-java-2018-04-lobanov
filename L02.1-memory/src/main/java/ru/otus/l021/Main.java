@@ -1,9 +1,9 @@
-package ru.otus.l031;
+package ru.otus.l021;
 
-import ru.otus.l031.measuring.MeasuringService;
-import ru.otus.l031.measuring.Meter;
-import ru.otus.l031.report.SizeReporter;
-import ru.otus.l031.supply.ObjectsSupplier;
+import ru.otus.l021.measuring.MeasuringService;
+import ru.otus.l021.measuring.Meter;
+import ru.otus.l021.report.SizeReporter;
+import ru.otus.l021.supply.ObjectsSupplier;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -11,8 +11,8 @@ import java.util.LinkedList;
 import java.util.stream.Stream;
 
 import static java.util.stream.Stream.of;
-import static ru.otus.l031.report.SizeReporter.consoleReporter;
-import static ru.otus.l031.supply.ObjectsSupplier.*;
+import static ru.otus.l021.report.SizeReporter.consoleReporter;
+import static ru.otus.l021.supply.ObjectsSupplier.*;
 
 public class Main {
 

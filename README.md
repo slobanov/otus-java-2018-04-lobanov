@@ -5,10 +5,10 @@
 [![Build Status](https://travis-ci.org/slobanov/otus-java-2018-04-lobanov.svg?branch=master)](https://travis-ci.org/slobanov/otus-java-2018-04-lobanov)
 
 Contents:
-* [L01.1-maven](L01.1-maven/README.md)
-* [L03.1-memrory](L03.1-memory/README.md)
-* [L03.2-additional](L03.2-additional/README.md)
-* [L05.1-myarraylist](L05.1-myarraylist/README.md)
+* [L01.1-maven](L01.1-maven)
+* [L02.1-memrory](L02.1-memory)
+* [L02.2-additional](L02.2-additional)
+* [L03.1-myarraylist](L03.1-myarraylist)
 - - - -
 
 Sergey Lobanov

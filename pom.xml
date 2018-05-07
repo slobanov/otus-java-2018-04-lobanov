@@ -9,9 +9,9 @@
 
     <modules>
         <module>L01.1-maven</module>
-        <module>L03.1-memory</module>
-        <module>L03.2-additional</module>
-        <module>L05.1-myarraylist</module>
+        <module>L02.1-memory</module>
+        <module>L02.2-additional</module>
+        <module>L03.1-myarraylist</module>
     </modules>
 
     <packaging>pom</packaging>

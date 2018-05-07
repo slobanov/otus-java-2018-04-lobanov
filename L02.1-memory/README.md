@@ -1,4 +1,4 @@
-# L03.1-memory
+# L02.1-memory
 
 Java object memory consumption test stand.
 

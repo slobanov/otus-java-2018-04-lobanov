@@ -1,4 +1,4 @@
-# L03.2-additional
+# L02.2-additional
 
 
 `StringTutor`'s `checkGreeting` and `ArrayCopyTutor`'s `deleteAnimal` realizations.

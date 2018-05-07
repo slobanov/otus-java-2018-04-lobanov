@@ -9,29 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>L05.1-myarraylist</artifactId>
+    <artifactId>L02.2-additional</artifactId>
     <version>1.0.0</version>
 
-    <name>l051-myarraylist</name>
+    <name>l022-additional</name>
 
     <dependencies>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-ext</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -41,5 +24,6 @@
             <artifactId>junit-jupiter-params</artifactId>
         </dependency>
     </dependencies>
+
 
 </project>

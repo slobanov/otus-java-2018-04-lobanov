@@ -1,4 +1,4 @@
-package ru.otus.l031.measuring;
+package ru.otus.l021.measuring;
 
 public interface Meter {
     long deepSizeOf(Object object);
