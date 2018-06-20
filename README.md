@@ -9,6 +9,7 @@ Contents:
 * [L02.1-memrory](L02.1-memory)
 * [L02.2-additional](L02.2-additional)
 * [L03.1-myarraylist](L03.1-myarraylist)
+* [L04.1-gc](L04.1-gc)
 - - - -
 
 Sergey Lobanov
