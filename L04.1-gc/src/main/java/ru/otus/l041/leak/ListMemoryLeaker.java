@@ -30,7 +30,7 @@ class ListMemoryLeaker implements MemoryLeaker {
             try {
                 Thread.sleep(timeout);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                break;
             }
         }
     }
