@@ -5,21 +5,22 @@ import ru.otus.test.report.TestReporter;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.List;
+import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
 
-class TestRunner {
+class TestRunner<T> {
 
-    private final Class<?> clz;
-    private final Object instance;
+    private final Class<? extends T> clz;
     private final TestReporter testReporter;
+    private final Supplier<T> instanceSup;
 
-    TestRunner(Object instance, TestReporter testReporter) {
-        this.clz = instance.getClass();
-        this.instance = instance;
+    TestRunner(Class<? extends T> clz, TestReporter testReporter, Supplier<T> instanceSup) {
+        this.clz = clz;
         this.testReporter = testReporter;
+        this.instanceSup = instanceSup;
     }
 
     public void runTests() {
@@ -31,12 +32,7 @@ class TestRunner {
         getAnnotated(Test.class)
             .stream()
             .sorted(comparing(Method::getName))
-            .forEach(t -> {
-                before.forEach(this::invoke);
-                boolean result = invoke(t);
-                report(t, result);
-                after.forEach(this::invoke);
-            });
+            .forEach(t -> report(t, executeTest(before, after, t)));
     }
 
     private List<Method> getAnnotated(Class<? extends Annotation> annotationClz) {
@@ -45,7 +41,7 @@ class TestRunner {
                 .collect(toList());
     }
 
-    private boolean invoke(Method method) {
+    private boolean invoke(Method method, Object instance) {
         try {
             method.setAccessible(true);
             method.invoke(instance);
@@ -55,6 +51,18 @@ class TestRunner {
         }
     }
 
+    private boolean executeTest(
+            List<Method> before,
+            List<Method> after,
+            Method test
+    ) {
+            Object instance = instanceSup.get();
+            boolean beforeResult = before.stream().allMatch(m -> invoke(m, instance));
+            boolean testResult = invoke(test, instance);
+            boolean afterResult = after.stream().allMatch(m -> invoke(m, instance));
+            return beforeResult && testResult && afterResult;
+    }
+
     private void report(Method method, Boolean result) {
         if (result) {
             testReporter.reportSuccess(method);
@@ -62,4 +70,5 @@ class TestRunner {
             testReporter.reportFailure(method);
         }
     }
+
 }

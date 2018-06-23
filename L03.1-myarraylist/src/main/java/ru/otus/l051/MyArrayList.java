@@ -58,7 +58,7 @@ public class MyArrayList<T> extends AbstractList<T> implements List<T> {
         LOGGER.info("Adding '{}'", t);
         ensureCapacity(size+1);
         array[size] = t;
-        LOGGER.debug("New array = '" + Arrays.toString(array) + "'");
+        LOGGER.debug("New array = '{}'", Arrays.toString(array));
         ++size;
         return true;
     }

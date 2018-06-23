@@ -21,7 +21,8 @@ public class ListMemoryLeaker implements MemoryLeaker {
     public void leak() {
         List<Integer> l = new ArrayList<>();
 
-        while (true) {
+        boolean interrupted = false;
+        while (!interrupted) {
             l = Stream.concat(
                     l.stream().skip(addedSize/2),
                     current().ints().limit(addedSize).boxed()
@@ -30,7 +31,8 @@ public class ListMemoryLeaker implements MemoryLeaker {
             try {
                 Thread.sleep(timeout);
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                interrupted = true;
+                Thread.currentThread().interrupt();
             }
         }
     }

@@ -14,6 +14,7 @@
         <module>L03.1-myarraylist</module>
         <module>L04.1-gc</module>
         <module>L05.1-test</module>
+        <module>L06.1-atm</module>
     </modules>
 
     <packaging>pom</packaging>

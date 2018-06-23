@@ -7,7 +7,7 @@ import ru.otus.l041.gclog.format.GCLogFormatter;
 
 public class SlfjGCLogger implements GCLogger {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(SlfjGCLogger.class);
+    private final Logger logger = LoggerFactory.getLogger(SlfjGCLogger.class);
 
     private final GCLogFormatter gcLogFormatter;
 
@@ -17,6 +17,6 @@ public class SlfjGCLogger implements GCLogger {
 
     @Override
     public void log(GCLogData gcLogData) {
-        LOGGER.info(gcLogFormatter.format(gcLogData));
+        logger.info(gcLogFormatter.format(gcLogData));
     }
 }

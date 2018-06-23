@@ -38,7 +38,7 @@ public interface ObjectsSupplier<T> {
                 collectionSupplier,
                 () -> value,
                 size,
-                "same value " + String.valueOf(value)
+                "same value " + value
         );
 
     }
