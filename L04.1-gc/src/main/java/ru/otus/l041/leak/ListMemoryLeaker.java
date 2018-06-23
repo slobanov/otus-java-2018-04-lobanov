@@ -7,12 +7,12 @@ import java.util.stream.Stream;
 import static java.util.concurrent.ThreadLocalRandom.current;
 import static java.util.stream.Collectors.toList;
 
-class ListMemoryLeaker implements MemoryLeaker {
+public class ListMemoryLeaker implements MemoryLeaker {
 
     private final int addedSize;
     private final long timeout;
 
-    ListMemoryLeaker(int addedSize, long timeout) {
+    public ListMemoryLeaker(int addedSize, long timeout) {
         this.addedSize = addedSize;
         this.timeout = timeout;
     }
@@ -30,7 +30,7 @@ class ListMemoryLeaker implements MemoryLeaker {
             try {
                 Thread.sleep(timeout);
             } catch (InterruptedException e) {
-                break;
+                throw new RuntimeException(e);
             }
         }
     }

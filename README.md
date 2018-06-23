@@ -4,6 +4,7 @@
 
 [![Build Status](https://travis-ci.org/slobanov/otus-java-2018-04-lobanov.svg?branch=master)](https://travis-ci.org/slobanov/otus-java-2018-04-lobanov)
 [![License: MIT](http://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=ru.otus%3Acommon-parent&metric=alert_status)](https://sonarcloud.io/dashboard/index/ru.otus%3Acommon-parent)
 
 Contents:
 * [L01.1-maven](L01.1-maven)

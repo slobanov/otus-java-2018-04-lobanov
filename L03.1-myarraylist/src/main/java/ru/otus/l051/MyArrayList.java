@@ -58,7 +58,7 @@ public class MyArrayList<T> extends AbstractList<T> implements List<T> {
         LOGGER.info("Adding '{}'", t);
         ensureCapacity(size+1);
         array[size] = t;
-        LOGGER.debug("New array = '{}'", Arrays.toString(array));
+        LOGGER.debug("New array = '" + Arrays.toString(array) + "'");
         ++size;
         return true;
     }
@@ -67,11 +67,13 @@ public class MyArrayList<T> extends AbstractList<T> implements List<T> {
     public T set(int index, T element) {
         LOGGER.debug("Setting '{}' on '{}' position", element, index);
         checkRange(index);
-        return array[index] = element;
+        array[index] = element;
+        return element;
     }
 
     @Override
     public Object[] toArray() {
         return Arrays.copyOf(array, size);
     }
+
 }

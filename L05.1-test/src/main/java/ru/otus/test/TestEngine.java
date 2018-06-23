@@ -6,7 +6,8 @@ import ru.otus.test.report.TestReporterImpl;
 
 import java.lang.reflect.Constructor;
 
-public class TestEngine {
+public enum TestEngine {
+    ;
 
     public static void runTestsInClassByName(String className) {
         try {

@@ -16,7 +16,7 @@ import static ru.otus.l021.supply.ObjectsSupplier.*;
 
 public class Main {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Meter meter = Meter.defaultMeter();
         SizeReporter sizeReporter = consoleReporter();
 

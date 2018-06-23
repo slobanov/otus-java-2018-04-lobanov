@@ -4,9 +4,13 @@ language: java
 
 jdk: oraclejdk9
 
+addons:
+  sonarcloud:
+    organization: "slobanov-github"
+
 services:
   - docker
 
 install: true
-script: mvn clean deploy
+script: mvn clean test sonar:sonar deploy
 

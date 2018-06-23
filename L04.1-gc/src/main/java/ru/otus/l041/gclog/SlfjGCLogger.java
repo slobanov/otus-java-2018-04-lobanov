@@ -5,13 +5,13 @@ import org.slf4j.LoggerFactory;
 import ru.otus.l041.gclog.data.GCLogData;
 import ru.otus.l041.gclog.format.GCLogFormatter;
 
-public class Slf4jGCLogger implements GCLogger {
+public class SlfjGCLogger implements GCLogger {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(Slf4jGCLogger.class);
+    private final Logger LOGGER = LoggerFactory.getLogger(SlfjGCLogger.class);
 
     private final GCLogFormatter gcLogFormatter;
 
-    Slf4jGCLogger(GCLogFormatter gcLogFormatter) {
+    public SlfjGCLogger(GCLogFormatter gcLogFormatter) {
         this.gcLogFormatter = gcLogFormatter;
     }
 
