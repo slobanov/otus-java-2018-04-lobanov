@@ -49,7 +49,7 @@ class ATMImplTest {
         Cassette cassette2 = setUpCassette(denomination2, DEN2_CNT, DEN2_CNT*VAL2, false);
 
         ChangeProcessor changeProcessor = setUpChangeProcessor();
-        atm = new ATMFactory().defaultATM(List.of(cassette1, cassette2), changeProcessor);
+        atm = new ATMFactory(changeProcessor).defaultATM(List.of(cassette1, cassette2));
 
     }
 

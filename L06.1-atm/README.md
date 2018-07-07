@@ -39,7 +39,7 @@ public class Main {
                 cassetteFactory.newCassette(FIVE_THOUSAND, 10)
         );
 
-        ATM atm = new ATMFactory().defaultATM(cassettes, changeProcessor);
+        ATM atm = new ATMFactory(changeProcessor).defaultATM(cassettes);
 
         Stream.of(
                 ONE_HUNDRED,
@@ -52,15 +52,15 @@ public class Main {
                 FIVE_THOUSAND,
                 ONE_THOUSAND,
                 ONE_THOUSAND
-        ).map(Banknote::new).forEach(atm::offer);
+        ).map(Banknote::new).forEach(atm::accept);
 
         LOGGER.info("initial balance: {}", atm.balance());
         //results in 8500
 
-        LOGGER.info(handOut, atm.charge(2600));
-        /*results in  [ Banknote{denomination=ONE_HUNDRED}, 
-                        Banknote{denomination=FIVE_HUNDRED}, 
-                        Banknote{denomination=ONE_THOUSAND}, 
+        LOGGER.info("handOut: ", atm.handOut(2600));
+        /*results in  [ Banknote{denomination=ONE_HUNDRED},
+                        Banknote{denomination=FIVE_HUNDRED},
+                        Banknote{denomination=ONE_THOUSAND},
                         Banknote{denomination=ONE_THOUSAND}
                       ]
          */

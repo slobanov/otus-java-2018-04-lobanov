@@ -7,7 +7,13 @@ import java.util.List;
 
 public final class ATMFactory {
 
-    public ATM defaultATM(List<Cassette> cassettes, ChangeProcessor chargeCalculator) {
-        return new ATMImpl(cassettes, chargeCalculator);
+    private final ChangeProcessor changeProcessor;
+
+    public ATMFactory(ChangeProcessor changeProcessor) {
+        this.changeProcessor = changeProcessor;
+    }
+
+    public ATM defaultATM(List<Cassette> cassettes) {
+        return new ATMImpl(cassettes, changeProcessor);
     }
 }
