@@ -26,25 +26,24 @@
         <maven.compiler.target>1.9</maven.compiler.target>
 
         <maven.assembly.plugin.version>3.1.0</maven.assembly.plugin.version>
-        <maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
+        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
         <maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
         <maven.deploy.plugin>2.8.2</maven.deploy.plugin>
         <maven.install.plugin>2.5.2</maven.install.plugin>
         <dockerfile.maven.plugin.verion>0.25.2</dockerfile.maven.plugin.verion>
         <exec.maven.plugin.version>1.6.0</exec.maven.plugin.version>
-        <jacoco.version>0.8.1</jacoco.version>
+        <jacoco.version>0.8.4</jacoco.version>
 
         <commons.lang3.version>3.7</commons.lang3.version>
         <typesafe.config.version>1.3.3</typesafe.config.version>
         <org.slf4j.version>1.7.25</org.slf4j.version>
         <logback.version>1.2.3</logback.version>
-        <com.fasterxml.jackson.version>2.9.9</com.fasterxml.jackson.version>
+        <com.fasterxml.jackson.version>2.9.10.3</com.fasterxml.jackson.version>
         <org.reflections.version>0.9.11</org.reflections.version>
 
         <jamm.version>0.3.2</jamm.version>
 
-        <junit.jupiter.version>5.1.1</junit.jupiter.version>
-        <junit.platform.version>1.1.1</junit.platform.version>
+        <junit.jupiter.version>5.4.2</junit.jupiter.version>
         <org.mockito.core.version>2.19.0</org.mockito.core.version>
 
         <docker.repository.org>otusjava201804lobanov</docker.repository.org>
@@ -111,13 +110,7 @@
 
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-api</artifactId>
-                <version>${junit.jupiter.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-params</artifactId>
+                <artifactId>junit-jupiter</artifactId>
                 <version>${junit.jupiter.version}</version>
                 <scope>test</scope>
             </dependency>
@@ -168,18 +161,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven.surefire.plugin.version}</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.junit.platform</groupId>
-                            <artifactId>junit-platform-surefire-provider</artifactId>
-                            <version>${junit.platform.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.junit.jupiter</groupId>
-                            <artifactId>junit-jupiter-engine</artifactId>
-                            <version>${junit.jupiter.version}</version>
-                        </dependency>
-                    </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>io.fabric8</groupId>
